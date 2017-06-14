@@ -70,7 +70,7 @@ class AddNewProductViewController: UIViewController, UIPickerViewDataSource, UIP
     @IBOutlet weak var newProduct: UITextField!
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 2
+        return 1
     }
     
     @IBOutlet weak var productCountPickerView: UIPickerView!
