@@ -13,43 +13,28 @@ import RealmSwift
 class AddNewProductViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
 
-    var milk = Product()
-    var brot = Product()
-    var apples = Product()
+
     
-    var standartProductList: [Product]
+    var standartProductList: [String] = []
     
     var manager = ManagerData()
     
-    var productList = [Product()]
+    var productList: [String] = []
     var meteringPicker: [String] = ["KG", "Count","Liter"]
     var productCount: [Double] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        milk.productName = "Milk"
-        milk.productMetering = "Liter"
-        milk.productCount = 0
-        milk.productCountHistory = 0
+
         
-        brot.productName = "Brot"
-        brot.productMetering = "Count"
-        brot.productCount = 0
-        brot.productCountHistory = 0
-        
-        apples.productName = "Apples"
-        apples.productMetering = "KG"
-        apples.productCount = 0
-        apples.productCountHistory = 0
-        
-        standartProductList = [milk, brot, apples]
+        standartProductList = ["Milk", "Brot", "Apples"]
         
         standartProductPickerView.dataSource = self
         standartProductPickerView.delegate = self
         productCountPickerView.dataSource = self
         productCountPickerView.delegate = self
         
-        productList.productName = manager.loadProductsListFromDB()
+        productList = manager.loadProductsListFromDB()
     }
     
     @IBAction func addNewProductButton(_ sender: Any) {
@@ -66,7 +51,7 @@ class AddNewProductViewController: UIViewController, UIPickerViewDataSource, UIP
             self.present(alert, animated: true, completion: nil)
         }
             
-        else if productList.productName.contains(newProduct.text!) {
+        else if productList.contains(newProduct.text!) {
             let alert = UIAlertController(title: "Error", message: "Product is already", preferredStyle: .alert)
             let action = UIAlertAction(title: "ok", style: .default, handler: nil)
             alert.addAction(action)
@@ -96,7 +81,7 @@ class AddNewProductViewController: UIViewController, UIPickerViewDataSource, UIP
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?{
-        return standartProductList.productName[row]
+        return standartProductList[row]
     }
     
     

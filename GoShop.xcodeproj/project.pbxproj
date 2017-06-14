@@ -10,7 +10,6 @@
 		216253A7A68E00CB795DCA65 /* Pods_GoShop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 779E873DB87D289DEF3F3BD5 /* Pods_GoShop.framework */; };
 		B602BB321EDEFED100150B8E /* managerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B602BB311EDEFED100150B8E /* managerData.swift */; };
 		B602BB341EDF183500150B8E /* ProductData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B602BB331EDF183500150B8E /* ProductData.swift */; };
-		B635BCD01EF02F8D002F32A7 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = B635BCCF1EF02F8D002F32A7 /* Product.swift */; };
 		B699251B1ED47BD8006FB2BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B699251A1ED47BD8006FB2BB /* AppDelegate.swift */; };
 		B69925201ED47BD8006FB2BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B699251E1ED47BD8006FB2BB /* Main.storyboard */; };
 		B69925221ED47BD8006FB2BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B69925211ED47BD8006FB2BB /* Assets.xcassets */; };
@@ -25,7 +24,6 @@
 		779E873DB87D289DEF3F3BD5 /* Pods_GoShop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoShop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B602BB311EDEFED100150B8E /* managerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = managerData.swift; sourceTree = "<group>"; };
 		B602BB331EDF183500150B8E /* ProductData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductData.swift; sourceTree = "<group>"; };
-		B635BCCF1EF02F8D002F32A7 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		B69925171ED47BD8006FB2BB /* GoShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B699251A1ED47BD8006FB2BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B699251F1ED47BD8006FB2BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -85,7 +83,6 @@
 				B69925211ED47BD8006FB2BB /* Assets.xcassets */,
 				B69925231ED47BD8006FB2BB /* LaunchScreen.storyboard */,
 				B69925261ED47BD8006FB2BB /* Info.plist */,
-				B635BCCF1EF02F8D002F32A7 /* Product.swift */,
 				B602BB311EDEFED100150B8E /* managerData.swift */,
 			);
 			path = GoShop;
@@ -228,7 +225,6 @@
 				B602BB321EDEFED100150B8E /* managerData.swift in Sources */,
 				B69925311ED483B6006FB2BB /* TableViewController2.swift in Sources */,
 				B69925331ED484FE006FB2BB /* AddNewProductViewController.swift in Sources */,
-				B635BCD01EF02F8D002F32A7 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
