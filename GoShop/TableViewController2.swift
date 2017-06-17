@@ -45,4 +45,12 @@ class TableViewController2: UITableViewController {
         cell.textLabel?.text = productList[indexPath.row]
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toArchiveSegue" {
+            let archive: ArchiveTableViewController = segue.destination as! ArchiveTableViewController
+        }
+    }
+    
+
 }
