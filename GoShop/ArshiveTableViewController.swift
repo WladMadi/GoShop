@@ -13,6 +13,7 @@ class ArchiveTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("arhive")
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -23,5 +24,8 @@ class ArchiveTableViewController: UITableViewController {
         return 1
     }
     
-
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        return cell
+    }
 }

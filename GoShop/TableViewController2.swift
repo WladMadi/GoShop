@@ -16,6 +16,11 @@ class TableViewController2: UITableViewController {
     
     var manager = ManagerData()
     
+    @IBAction func arhiveButton(_ sender: Any) {
+        
+        performSegue(withIdentifier: "arhiveButton", sender: nil)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         print(Realm.Configuration.defaultConfiguration.fileURL!)

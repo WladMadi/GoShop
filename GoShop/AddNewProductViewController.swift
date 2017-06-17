@@ -15,19 +15,17 @@ class AddNewProductViewController: UIViewController, UIPickerViewDataSource, UIP
 
 
     
-    var standartProductList: [String] = []
+    var standartProductList: [String] = ["Молоко, литр", "Хлеб, шт", "Яблоки, кг"]
     
     var manager = ManagerData()
     
     var productList: [String] = []
     var meteringPicker: [String] = ["KG", "Count","Liter"]
-    var productCount: [Double] = []
+    var productCount: [Double]  = [0.5, 1, 1.5, 2,2.5,3, 3.5,4,5,6,7]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        standartProductList = ["Milk", "Brot", "Apples"]
         
         standartProductPickerView.dataSource = self
         standartProductPickerView.delegate = self
@@ -70,18 +68,27 @@ class AddNewProductViewController: UIViewController, UIPickerViewDataSource, UIP
     @IBOutlet weak var newProduct: UITextField!
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+        return 2
     }
     
     @IBOutlet weak var productCountPickerView: UIPickerView!
     
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if component == 0 {
     return standartProductList.count
+        }else {
+            return productCount.count
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?{
-        return standartProductList[row]
+
+        if component == 0 {
+                return standartProductList[row]
+        }else {
+            return String(productCount[row])
+        }
     }
     
     
