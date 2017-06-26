@@ -25,8 +25,10 @@ class TableViewController2: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.productList = self.manager.loadProductsListFromDB()
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        
+        productList = manager.loadProductsListFromDB()
+
+        print(Realm.Configuration.defaultConfiguration.fileURL!, "dsds \(productList)")
         notificationToken = realm.addNotificationBlock {notification, realm in
             self.productList = self.manager.loadProductsListFromDB()
             print ("ReadDB")
@@ -61,6 +63,7 @@ class TableViewController2: UITableViewController {
         return cell
     }
     
-
-
+    deinit {
+        notificationToken?.stop()
+    }
 }
