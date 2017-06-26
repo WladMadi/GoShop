@@ -13,6 +13,7 @@ import RealmSwift
 class AddNewProductViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
 
+    @IBOutlet weak var ProductMetricPicker: UISegmentedControl!
 
     
     var standartProductList: [String] = ["Молоко, литр", "Хлеб, шт", "Яблоки, кг"]
@@ -22,6 +23,8 @@ class AddNewProductViewController: UIViewController, UIPickerViewDataSource, UIP
     var productList: [String] = []
     var meteringPicker: [String] = ["KG", "Count","Liter"]
     var productCount: [Double]  = [0.5, 1, 1.5, 2,2.5,3, 3.5,4,5,6,7]
+    
+    @IBOutlet weak var standartProductPickerView: UIPickerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,13 +36,13 @@ class AddNewProductViewController: UIViewController, UIPickerViewDataSource, UIP
         productCountPickerView.delegate = self
         
         productList = manager.loadProductsListFromDB()
+       
     }
     
     @IBAction func addNewProductButton(_ sender: Any) {
      
         if newProduct.text!.isEmpty && standartProductPickerView.accessibilityActivate(){
-            let stdProductName = standartProductPickerView.selectedRow(inComponent: 0)
-            print ("test")
+            manager.writeToDB(newProductName: standartProductPickerView.selectedRow(inComponent: 0).description+standartProductPickerView.selectedRow(inComponent: 1).description  , newProductCount: Double(productCountTextField.text!)!, newProductMetric: title!)
         }
 
        else if newProduct.text!.isEmpty  {
@@ -57,19 +60,22 @@ class AddNewProductViewController: UIViewController, UIPickerViewDataSource, UIP
         }
         
         else {
-            manager.writeToDB(newProductName: newProduct.text!)
+            let title: String = ProductMetricPicker.titleForSegment(at: ProductMetricPicker.selectedSegmentIndex)!
+            manager.writeToDB(newProductName: newProduct.text!, newProductCount: Double(productCountTextField.text!)!, newProductMetric: title)
             dismiss(animated: true, completion: nil)
             //performSegue(withIdentifier: "goHome", sender: nil)
         }
     }
     
-    @IBOutlet weak var standartProductPickerView: UIPickerView!
+
     
     @IBOutlet weak var newProduct: UITextField!
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 2
     }
+    @IBOutlet weak var productCountTextField: UITextField!
+    
     
     @IBOutlet weak var productCountPickerView: UIPickerView!
     

@@ -13,6 +13,7 @@ import RealmSwift
 class TableViewController2: UITableViewController {
     
     var productList: [String] = []
+    var countProductList: [Double] = []
     
     var manager = ManagerData()
     
@@ -29,6 +30,7 @@ class TableViewController2: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         productList = manager.loadProductsListFromDB()
         print ("ok2")
+        
         tableView.reloadData()
     }
     
@@ -48,14 +50,10 @@ class TableViewController2: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = productList[indexPath.row]
+      //cell.detailTextLabel?.text =
         return cell
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toArchiveSegue" {
-            let archive: ArchiveTableViewController = segue.destination as! ArchiveTableViewController
-        }
-    }
-    
+
 
 }

@@ -11,7 +11,8 @@ import RealmSwift
 
 class ProductData: Object {
     dynamic var productName: String = ""
-    dynamic var produstCount: Double = 0
+    dynamic var productCount: Double = 0
+    dynamic var productMetric: String = ""
     override static func primaryKey() -> String? {
         return "productName"
     }
