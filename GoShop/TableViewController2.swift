@@ -14,8 +14,9 @@ class TableViewController2: UITableViewController {
     
     var productList: [String] = []
     var countProductList: [Double] = []
-    
+    let realm = try! Realm()
     var manager = ManagerData()
+    var notificationToken: NotificationToken? = nil
     
     @IBAction func arhiveButton(_ sender: Any) {
         
@@ -24,15 +25,21 @@ class TableViewController2: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.productList = self.manager.loadProductsListFromDB()
         print(Realm.Configuration.defaultConfiguration.fileURL!)
+        notificationToken = realm.addNotificationBlock {notification, realm in
+            self.productList = self.manager.loadProductsListFromDB()
+            print ("ReadDB")
+        self.tableView.reloadData()
+        }
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        productList = manager.loadProductsListFromDB()
-        print ("ok2")
+
+    //override func viewWillAppear(_ animated: Bool) {
+      //  productList = manager.loadProductsListFromDB()
+        //print ("ok2")
         
-        tableView.reloadData()
-    }
+       // tableView.reloadData()
+   // }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
