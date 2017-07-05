@@ -20,7 +20,8 @@ class ManagerData {
         let data = realm.objects(ProductData)
         
         for value in data{
-            productList.append(value.productName+",   "+String(value.productCount)+" "+value.productMetric)
+            productList.append(value.productName)
+//                +",   "+String(value.productCount)+" "+value.productMetric)
 
         }
         return productList

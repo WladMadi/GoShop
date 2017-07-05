@@ -32,8 +32,7 @@ class AddNewProductViewController: UIViewController, UIPickerViewDataSource, UIP
         
         standartProductPickerView.dataSource = self
         standartProductPickerView.delegate = self
-        productCountPickerView.dataSource = self
-        productCountPickerView.delegate = self
+
         
         productList = manager.loadProductsListFromDB()
        
@@ -62,7 +61,7 @@ class AddNewProductViewController: UIViewController, UIPickerViewDataSource, UIP
         else {
             let title: String = ProductMetricPicker.titleForSegment(at: ProductMetricPicker.selectedSegmentIndex)!
             manager.writeToDB(newProductName: newProduct.text!, newProductCount: Double(productCountTextField.text!)!, newProductMetric: title)
-            dismiss(animated: true, completion: nil)
+//            dismiss(animated: true, completion: nil)
             //performSegue(withIdentifier: "goHome", sender: nil)
         }
     }
@@ -99,10 +98,10 @@ class AddNewProductViewController: UIViewController, UIPickerViewDataSource, UIP
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         if segue.identifier == "goHome" {
-            let destVC: TableViewController2 = segue.destination as! TableViewController2
-            destVC.productList.append(self.newProduct.text!)
-            destVC.tableView.reloadData()
-        }
+//         if segue.identifier == "goHome" {
+//            let destVC: TableViewController2 = segue.destination as! TableViewController2
+//            destVC.productList.append(self.newProduct.text!)
+//            destVC.tableView.reloadData()
+//        }
     }
 }

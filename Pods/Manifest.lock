@@ -1,4 +1,5 @@
 PODS:
+  - BWSwipeRevealCell (2.0.1)
   - Realm (2.7.0):
     - Realm/Headers (= 2.7.0)
   - Realm/Headers (2.7.0)
@@ -6,12 +7,14 @@ PODS:
     - Realm (= 2.7.0)
 
 DEPENDENCIES:
+  - BWSwipeRevealCell (~> 2.0)
   - RealmSwift (~> 2.7)
 
 SPEC CHECKSUMS:
+  BWSwipeRevealCell: 0918e8da129cf7af16b9bca4062b8e5a8d9ee688
   Realm: 07e5d3a9e0e41d65fd5f9f05150ed6295d0f093b
   RealmSwift: 6d06425d3900c86473c4f323bf6949b43fca22bc
 
-PODFILE CHECKSUM: 3604b638ce52858ade153efc1e133d5f90dc666e
+PODFILE CHECKSUM: 47a8578003330a9a5508039526aac59b7643a131
 
 COCOAPODS: 1.2.1
