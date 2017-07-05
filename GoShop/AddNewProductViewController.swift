@@ -15,7 +15,7 @@ class AddNewProductViewController: UIViewController, UIPickerViewDataSource, UIP
 
     @IBOutlet weak var ProductMetricPicker: UISegmentedControl!
 
-    
+    var pickerViewChange: Bool = false
     var standartProductList: [String] = ["Молоко, литр", "Хлеб, шт", "Яблоки, кг"]
     
     var manager = ManagerData()
@@ -40,7 +40,7 @@ class AddNewProductViewController: UIViewController, UIPickerViewDataSource, UIP
     
     @IBAction func addNewProductButton(_ sender: Any) {
      
-        if newProduct.text!.isEmpty && standartProductPickerView.accessibilityActivate(){
+        if newProduct.text!.isEmpty && pickerViewChange{
             manager.writeToDB(newProductName: standartProductPickerView.selectedRow(inComponent: 0).description+standartProductPickerView.selectedRow(inComponent: 1).description  , newProductCount: Double(productCountTextField.text!)!, newProductMetric: title!)
         }
 
@@ -77,6 +77,10 @@ class AddNewProductViewController: UIViewController, UIPickerViewDataSource, UIP
     
     
     @IBOutlet weak var productCountPickerView: UIPickerView!
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        pickerViewChange = true
+    }
     
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {

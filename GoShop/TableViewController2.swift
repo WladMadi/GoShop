@@ -85,7 +85,8 @@ class TableViewController2: UITableViewController, BWSwipeRevealCellDelegate {
 //    }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        self.configureCell(cell, atIndexPath: indexPath)
+//        self.configureCell(cell, atIndexPath: indexPath)
+          cell.textLabel!.text = productList[indexPath.row]
         return cell
     }
     
