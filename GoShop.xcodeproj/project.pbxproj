@@ -135,6 +135,7 @@
 				TargetAttributes = {
 					B69925161ED47BD8006FB2BB = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 257R75DVT3;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -354,6 +355,7 @@
 			baseConfigurationReference = 4A0DBB9200D7F5D585B123F8 /* Pods-GoShop.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 257R75DVT3;
 				INFOPLIST_FILE = GoShop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = WladMadi.GoShop;
@@ -367,6 +369,7 @@
 			baseConfigurationReference = 13F5B3EB747E814AF1DD18BB /* Pods-GoShop.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 257R75DVT3;
 				INFOPLIST_FILE = GoShop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = WladMadi.GoShop;

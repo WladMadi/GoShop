@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 import RealmSwift
-import BWSwipeRevealCell
 
-class TableViewController2: UITableViewController, BWSwipeRevealCellDelegate {
+
+class TableViewController2: UITableViewController {
     
     var productList: [String] = []
     var countProductList: [Double] = []
@@ -47,6 +47,15 @@ class TableViewController2: UITableViewController, BWSwipeRevealCellDelegate {
 //        
 //        tableView.reloadData()
 //    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("ok \(indexPath.row)")
+        productList.remove(at: indexPath.row)
+        tableView.reloadData()
+    }
+    
+    @IBAction func gestureReght(_ sender: Any) {
+        print("ok")
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -90,31 +99,31 @@ class TableViewController2: UITableViewController, BWSwipeRevealCellDelegate {
         return cell
     }
     
-    func configureCell(_ cell: UITableViewCell, atIndexPath indexPath: IndexPath) {
-        let swipeCell:BWSwipeRevealCell = cell as! BWSwipeRevealCell
-        
-        swipeCell.bgViewLeftImage = UIImage(named:"Done")!.withRenderingMode(.alwaysTemplate)
-        swipeCell.bgViewLeftColor = UIColor.green
-        
-        swipeCell.bgViewRightImage = UIImage(named:"Delete")!.withRenderingMode(.alwaysTemplate)
-        swipeCell.bgViewRightColor = UIColor.red
-        
-        swipeCell.textLabel!.text = productList[indexPath.row]
-//        let type = BWSwipeCellType(rawValue: object.value(forKey: "type") as! Int)!
-//        swipeCell.type = type
+//    func configureCell(_ cell: UITableViewCell, atIndexPath indexPath: IndexPath) {
+//        let swipeCell:BWSwipeRevealCell = cell as! BWSwipeRevealCell
 //        
-//        switch type {
-//        case .swipeThrough:
-//            swipeCell.textLabel!.text = "Swipe Through"
-//            break
-//        case .springRelease:
-//            swipeCell.textLabel!.text = "Spring Release"
-//            break
-//        case .slidingDoor:
-//            swipeCell.textLabel!.text = "Sliding Door"
-//            break
-//        }
-        
-        swipeCell.delegate = self
-    }
+//        swipeCell.bgViewLeftImage = UIImage(named:"Done")!.withRenderingMode(.alwaysTemplate)
+//        swipeCell.bgViewLeftColor = UIColor.green
+//        
+//        swipeCell.bgViewRightImage = UIImage(named:"Delete")!.withRenderingMode(.alwaysTemplate)
+//        swipeCell.bgViewRightColor = UIColor.red
+//        
+//        swipeCell.textLabel!.text = productList[indexPath.row]
+////        let type = BWSwipeCellType(rawValue: object.value(forKey: "type") as! Int)!
+////        swipeCell.type = type
+////        
+////        switch type {
+////        case .swipeThrough:
+////            swipeCell.textLabel!.text = "Swipe Through"
+////            break
+////        case .springRelease:
+////            swipeCell.textLabel!.text = "Spring Release"
+////            break
+////        case .slidingDoor:
+////            swipeCell.textLabel!.text = "Sliding Door"
+////            break
+////        }
+//        
+//        swipeCell.delegate = self
+//    }
 }
