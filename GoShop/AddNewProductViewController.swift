@@ -41,7 +41,8 @@ class AddNewProductViewController: UIViewController, UIPickerViewDataSource, UIP
     @IBAction func addNewProductButton(_ sender: Any) {
      
         if newProduct.text!.isEmpty && pickerViewChange{
-            manager.writeToDB(newProductName: standartProductPickerView.selectedRow(inComponent: 0).description+standartProductPickerView.selectedRow(inComponent: 1).description  , newProductCount: Double(productCountTextField.text!)!, newProductMetric: title!)
+            let metricTitle: String = ProductMetricPicker.titleForSegment(at: ProductMetricPicker.selectedSegmentIndex)!
+            manager.writeToDB(newProductName: standartProductPickerView.selectedRow(inComponent: 0).description+standartProductPickerView.selectedRow(inComponent: 1).description, newProductCount: Double(productCountTextField.text!)!, newProductMetric: metricTitle)
         }
 
        else if newProduct.text!.isEmpty  {
@@ -59,8 +60,8 @@ class AddNewProductViewController: UIViewController, UIPickerViewDataSource, UIP
         }
         
         else {
-            let title: String = ProductMetricPicker.titleForSegment(at: ProductMetricPicker.selectedSegmentIndex)!
-            manager.writeToDB(newProductName: newProduct.text!, newProductCount: Double(productCountTextField.text!)!, newProductMetric: title)
+            let metricTitle: String = ProductMetricPicker.titleForSegment(at: ProductMetricPicker.selectedSegmentIndex)!
+            manager.writeToDB(newProductName: newProduct.text!, newProductCount: Double(productCountTextField.text!)!, newProductMetric: metricTitle)
 //            dismiss(animated: true, completion: nil)
             //performSegue(withIdentifier: "goHome", sender: nil)
         }

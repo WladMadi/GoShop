@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 import RealmSwift
-import BWSwipeRevealCell
+//import BWSwipeRevealCell
 
-class TableViewController2: UITableViewController, BWSwipeRevealCellDelegate {
+class TableViewController2: UITableViewController {
     
     var productList: [String] = []
     var countProductList: [Double] = []
@@ -90,16 +90,16 @@ class TableViewController2: UITableViewController, BWSwipeRevealCellDelegate {
         return cell
     }
     
-    func configureCell(_ cell: UITableViewCell, atIndexPath indexPath: IndexPath) {
-        let swipeCell:BWSwipeRevealCell = cell as! BWSwipeRevealCell
+    //func configureCell(_ cell: UITableViewCell, atIndexPath indexPath: IndexPath) {
+     //   let swipeCell:BWSwipeRevealCell = cell as! BWSwipeRevealCell
         
-        swipeCell.bgViewLeftImage = UIImage(named:"Done")!.withRenderingMode(.alwaysTemplate)
-        swipeCell.bgViewLeftColor = UIColor.green
+       // swipeCell.bgViewLeftImage = UIImage(named:"Done")!.withRenderingMode(.alwaysTemplate)
+       // swipeCell.bgViewLeftColor = UIColor.green
         
-        swipeCell.bgViewRightImage = UIImage(named:"Delete")!.withRenderingMode(.alwaysTemplate)
-        swipeCell.bgViewRightColor = UIColor.red
+       // swipeCell.bgViewRightImage = UIImage(named:"Delete")!.withRenderingMode(.alwaysTemplate)
+       // swipeCell.bgViewRightColor = UIColor.red
         
-        swipeCell.textLabel!.text = productList[indexPath.row]
+       // swipeCell.textLabel!.text = productList[indexPath.row]
 //        let type = BWSwipeCellType(rawValue: object.value(forKey: "type") as! Int)!
 //        swipeCell.type = type
 //        
@@ -115,6 +115,6 @@ class TableViewController2: UITableViewController, BWSwipeRevealCellDelegate {
 //            break
 //        }
         
-        swipeCell.delegate = self
-    }
+//        swipeCell.delegate = self
+//  }
 }
