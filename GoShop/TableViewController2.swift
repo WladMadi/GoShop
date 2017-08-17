@@ -13,7 +13,7 @@ import RealmSwift
 
 class TableViewController2: UITableViewController {
     
-    var productList: [String] = []
+    var productList: [ProductData] = []
     var countProductList: [Double] = []
     let realm = try! Realm()
     var manager = ManagerData()
@@ -30,12 +30,12 @@ class TableViewController2: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        productList = manager.loadProductsListFromDB()
+       manager.loadProductsDataFromDB()
 
         print(Realm.Configuration.defaultConfiguration.fileURL!, "dsds \(productList)")
         
         notificationToken = realm.addNotificationBlock {notification, realm in
-            self.productList = self.manager.loadProductsListFromDB()
+            self.manager.loadProductsDataFromDB()
             print ("ReadDB \(self.productList)")
         self.tableView.reloadData()
         }
@@ -44,7 +44,7 @@ class TableViewController2: UITableViewController {
 //    override func viewWillAppear(_ animated: Bool) {
 //        productList = manager.loadProductsListFromDB()
 //        print ("ok2")
-//        
+//
 //        tableView.reloadData()
 //    }
     
@@ -86,7 +86,7 @@ class TableViewController2: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 //        self.configureCell(cell, atIndexPath: indexPath)
-          cell.textLabel!.text = productList[indexPath.row]
+          cell.textLabel!.text = productList[indexPath.row].productName
         return cell
     }
     

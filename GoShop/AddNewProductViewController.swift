@@ -16,33 +16,34 @@ class AddNewProductViewController: UIViewController, UIPickerViewDataSource, UIP
     @IBOutlet weak var ProductMetricPicker: UISegmentedControl!
 
     var pickerViewChange: Bool = false
+    
     var standartProductList: [String] = ["Молоко, литр", "Хлеб, шт", "Яблоки, кг"]
+    var standartProductCount: [Double] = [0.5, 1, 1.5, 2, 2.5, 3]
+    
+    var createProduct: ProductData = ProductData()
     
     var manager = ManagerData()
-    
-    var productList: [String] = []
-    var meteringPicker: [String] = ["KG", "Count","Liter"]
-    var productCount: [Double]  = [0.5, 1, 1.5, 2,2.5,3, 3.5,4,5,6,7]
     
     @IBOutlet weak var standartProductPickerView: UIPickerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         standartProductPickerView.dataSource = self
         standartProductPickerView.delegate = self
-
-        
-        productList = manager.loadProductsListFromDB()
-       
+        manager.loadProductsDataFromDB()
     }
     
     @IBAction func addNewProductButton(_ sender: Any) {
      
         if newProduct.text!.isEmpty && pickerViewChange{
+            
             let metricTitle: String = ProductMetricPicker.titleForSegment(at: ProductMetricPicker.selectedSegmentIndex)!
-            manager.writeToDB(newProductName: standartProductPickerView.selectedRow(inComponent: 0).description+standartProductPickerView.selectedRow(inComponent: 1).description, newProductCount: Double(productCountTextField.text!)!, newProductMetric: metricTitle)
+            createProduct.productName = standartProductList[standartProductPickerView.selectedRow(inComponent: 0)]
+            createProduct.productCount = Double(standartProductCount[standartProductPickerView.selectedRow(inComponent: 1)])
+            createProduct.productMetric = metricTitle
+            print(createProduct.productName, createProduct.productCount, createProduct.productMetric)
+            manager.writeToDB(newProduct: createProduct)
         }
 
        else if newProduct.text!.isEmpty  {
@@ -52,7 +53,7 @@ class AddNewProductViewController: UIViewController, UIPickerViewDataSource, UIP
             self.present(alert, animated: true, completion: nil)
         }
             
-        else if productList.contains(newProduct.text!) {
+        else if manager.findProductInDB(productName: newProduct.text!) {
             let alert = UIAlertController(title: "Error", message: "Product is already", preferredStyle: .alert)
             let action = UIAlertAction(title: "ok", style: .default, handler: nil)
             alert.addAction(action)
@@ -61,7 +62,12 @@ class AddNewProductViewController: UIViewController, UIPickerViewDataSource, UIP
         
         else {
             let metricTitle: String = ProductMetricPicker.titleForSegment(at: ProductMetricPicker.selectedSegmentIndex)!
-            manager.writeToDB(newProductName: newProduct.text!, newProductCount: Double(productCountTextField.text!)!, newProductMetric: metricTitle)
+            
+            createProduct.productName = newProduct.text!
+            createProduct.productCount = Double(productCountTextField.text!)!
+            createProduct.productMetric = metricTitle
+            
+            manager.writeToDB(newProduct: createProduct)
 //            dismiss(animated: true, completion: nil)
             //performSegue(withIdentifier: "goHome", sender: nil)
         }
@@ -88,7 +94,7 @@ class AddNewProductViewController: UIViewController, UIPickerViewDataSource, UIP
         if component == 0 {
     return standartProductList.count
         }else {
-            return productCount.count
+            return standartProductCount.count
         }
     }
     
@@ -97,7 +103,7 @@ class AddNewProductViewController: UIViewController, UIPickerViewDataSource, UIP
         if component == 0 {
                 return standartProductList[row]
         }else {
-            return String(productCount[row])
+            return String(standartProductCount[row])
         }
     }
     

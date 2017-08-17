@@ -10,6 +10,7 @@
 		216253A7A68E00CB795DCA65 /* Pods_GoShop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 779E873DB87D289DEF3F3BD5 /* Pods_GoShop.framework */; };
 		B602BB321EDEFED100150B8E /* managerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B602BB311EDEFED100150B8E /* managerData.swift */; };
 		B602BB341EDF183500150B8E /* ProductData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B602BB331EDF183500150B8E /* ProductData.swift */; };
+		B62222E61F45C2DE00132173 /* ArchiveListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62222E51F45C2DE00132173 /* ArchiveListTVC.swift */; };
 		B69896551EFAB27E00CC0AD5 /* ShopList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69896541EFAB27E00CC0AD5 /* ShopList.swift */; };
 		B699251B1ED47BD8006FB2BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B699251A1ED47BD8006FB2BB /* AppDelegate.swift */; };
 		B69925201ED47BD8006FB2BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B699251E1ED47BD8006FB2BB /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 		779E873DB87D289DEF3F3BD5 /* Pods_GoShop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoShop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B602BB311EDEFED100150B8E /* managerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = managerData.swift; sourceTree = "<group>"; };
 		B602BB331EDF183500150B8E /* ProductData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductData.swift; sourceTree = "<group>"; };
+		B62222E51F45C2DE00132173 /* ArchiveListTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArchiveListTVC.swift; sourceTree = "<group>"; };
 		B69896541EFAB27E00CC0AD5 /* ShopList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopList.swift; sourceTree = "<group>"; };
 		B69925171ED47BD8006FB2BB /* GoShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B699251A1ED47BD8006FB2BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				B69925321ED484FE006FB2BB /* AddNewProductViewController.swift */,
 				B602BB331EDF183500150B8E /* ProductData.swift */,
 				B69925211ED47BD8006FB2BB /* Assets.xcassets */,
+				B62222E51F45C2DE00132173 /* ArchiveListTVC.swift */,
 				B69925231ED47BD8006FB2BB /* LaunchScreen.storyboard */,
 				B69925261ED47BD8006FB2BB /* Info.plist */,
 				B602BB311EDEFED100150B8E /* managerData.swift */,
@@ -223,6 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B62222E61F45C2DE00132173 /* ArchiveListTVC.swift in Sources */,
 				B699251B1ED47BD8006FB2BB /* AppDelegate.swift in Sources */,
 				B602BB341EDF183500150B8E /* ProductData.swift in Sources */,
 				B602BB321EDEFED100150B8E /* managerData.swift in Sources */,

@@ -9,34 +9,64 @@
 import Foundation
 import RealmSwift
 
+
+var productList: [ProductData] = []
+
 class ManagerData {
     
     
-    func loadProductsListFromDB() -> [String] {
+  //  func loadProductsListFromDB() -> [ProductData] {
         
-        var productList:[String] = []
+  //      var productList:[ProductData] = []
     
-        let realm = try! Realm()
-        let data = realm.objects(ProductData)
+  //      let realm = try! Realm()
+  //      let data = realm.objects(ProductData)
         
-        for value in data{
-            productList.append(value.productName)
+  //      for value in data{
+  //          productList.append(value)
 //                +",   "+String(value.productCount)+" "+value.productMetric)
 
-        }
-        return productList
-    }
+  //      }
+   //     return productList
+   // }
     
+    
+    
+    func loadProductsDataFromDB()  {
+        
+      ///  var productList:[String] = []
+        
+        let realm = try! Realm()
+        //var productListLocal = realm.objects(ProductData)
+        let data = realm.objects(ProductData)
+        
+     for value in data{
+            productList.append(value)
+      }
+    }
 
     
-    func writeToDB(newProductName: String, newProductCount: Double, newProductMetric: String)  {
+    func writeToDB(newProduct: ProductData)  {
         let realm = try! Realm()
-        let product = ProductData()
-        product.productName = newProductName
-        product.productCount = newProductCount
-        product.productMetric = newProductMetric
+ 
         try! realm.write {
-            realm.add(product,update: true)
+            realm.add(newProduct,update: true)
         }
+    }
+    
+    func findProductInDB(productName: String) -> Bool  {
+    
+    ///  var productList:[String] = []
+    
+    let realm = try! Realm()
+    //var productListLocal = realm.objects(ProductData)
+    let data = realm.objects(ProductData)
+    
+    for value in data{
+    if value.productName == productName{
+        return true
+        }
+    }
+        return false
     }
 }
